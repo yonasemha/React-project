@@ -59,10 +59,11 @@ app.use(function (err, req, res, next) {
 
 
 // getting config key
-const db = config.get('mongoURI');
+ 
+ const DB = process.env.config.get('mongoURI');
 
 // connecting to mongodb 
-mongoose.connect(process.env.db, { useNewUrlParser: true, useCreateIndex :true })
+mongoose.connect(DB, { useNewUrlParser: true, useCreateIndex :true })
   .then(() => {
     console.log('connected to mongodb...!!!');
   })
