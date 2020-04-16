@@ -73,6 +73,10 @@ mongoose.connect(DB, { useNewUrlParser: true, useCreateIndex :true })
 
 // Use routes 
 
+if(process.env.NODE_ENV === 'production'){
+  app.use(express.static('client/build'));
+}
+
 const port = process.env.PORT || 5000
 app.listen(port, () => console.log(`listing on port ${port}`))
 
