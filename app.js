@@ -53,14 +53,14 @@ app.use(function (err, req, res, next) {
   res.locals.error = req.app.get('env') === 'development' ? err : {};
 
   // render the error page
-  res.status(err.status || 500);
+  res.status(err.status || 5000);
   res.render('error');
 });
 
 
 // getting config key
  
- const DB = process.env.config.get('mongoURI');
+ const DB = config.get('mongoURI');
 
 // connecting to mongodb 
 mongoose.connect(DB, { useNewUrlParser: true, useCreateIndex :true })
