@@ -34,7 +34,7 @@ class Signin extends Component {
     };
 
     componentDidUpdate(prevProps) {
-        const { error, isAuthenticated } = this.props;
+        const { error} = this.props;
         if (error !== prevProps.error) {
             if (error.id === "SIGNIN_FAIL") {
                 this.setState({ msg: error.msg.msg })

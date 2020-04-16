@@ -1,10 +1,10 @@
 import * as actionTypes from "../action/actionTypes";
-import { returnError } from "./errorAction";
+// import { returnError } from "./errorAction";
 import axios from "axios";
 // import {history} from '../../helper/history';
 
 
-
+// get comments
 export const getComments = (posts) => {
     return { type: actionTypes.GET_COMMENT, payload: posts }
 }
@@ -18,7 +18,7 @@ export const getCommentsAsync = () => {
 }
 
 
-
+// comment user
 export const commentUser = (userData) => {
   return { type: actionTypes.USER_COMMENT, payload: userData }
 }

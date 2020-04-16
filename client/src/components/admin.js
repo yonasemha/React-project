@@ -1,15 +1,12 @@
 import React from 'react';
-import { Form, Input, Col, FormGroup } from 'reactstrap';
-import * as actionTypes from '../store/action/countryAction'
+// import { Form, Input, Col, FormGroup } from 'reactstrap';
+// import * as actionTypes from '../store/action/countryAction'
 import { connect } from 'react-redux';
 import { deleteCountryAsync } from '../store/action/countryAction'
 
 
 class AdminForm extends React.Component{
-
-   
-
-    
+  
  deleteCountry=(id)=>{
  this.props.deleteCountryAsync(id);
 }
