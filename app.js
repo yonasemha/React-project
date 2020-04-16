@@ -62,7 +62,7 @@ app.use(function (err, req, res, next) {
 const db = config.get('mongoURI');
 
 // connecting to mongodb 
-mongoose.connect(db, { useNewUrlParser: true, useCreateIndex :true })
+mongoose.connect(process.env.db, { useNewUrlParser: true, useCreateIndex :true })
   .then(() => {
     console.log('connected to mongodb...!!!');
   })
