@@ -53,17 +53,16 @@ app.use(function (err, req, res, next) {
   res.locals.error = req.app.get('env') === 'development' ? err : {};
 
   // render the error page
-  res.status(err.status || 5000);
+  res.status(err.status || 500);
   res.render('error');
 });
 
 
 // getting config key
- 
- const DB = config.get('mongoURI');
+const db = config.get('mongoURI');
 
 // connecting to mongodb 
-mongoose.connect(DB, { useNewUrlParser: true, useCreateIndex :true })
+mongoose.connect(db, { useNewUrlParser: true, useCreateIndex :true })
   .then(() => {
     console.log('connected to mongodb...!!!');
   })
@@ -72,14 +71,6 @@ mongoose.connect(DB, { useNewUrlParser: true, useCreateIndex :true })
   })
 
 // Use routes 
-
-if(process.env.NODE_ENV === 'production'){
-  app.use(express.static('client/build'));
-
-  app.get('*',(req,res)=>{
-    res.sendFile(path.resolve(__dirname, 'client','build','index.html'))
-  })
-}
 
 const port = process.env.PORT || 5000
 app.listen(port, () => console.log(`listing on port ${port}`))

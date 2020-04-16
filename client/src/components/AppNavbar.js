@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Route, Link } from "react-router-dom";
+import React, { useState, Fragment } from "react";
+import { Route, Link, Router, Switch, Redirect } from "react-router-dom";
 import Container from "../container/container";
 import AddCountry from "./addCountry";
 import Admin from "./admin";
@@ -10,6 +10,7 @@ import { connect } from "react-redux";
 import addComment from "./addComments";
 import viewComment from "./viewComment";
 import homePage from './homePage'
+import asyncComponent from './asyncComponent'
 import {
   Collapse,
   Navbar,
@@ -24,6 +25,22 @@ import {
   DropdownItem,
   NavbarText,
 } from "reactstrap";
+
+const AsyncNewPost = asyncComponent(() => {
+  return import('./sendmoney');
+ });
+ 
+
+
+
+
+
+
+
+
+
+
+
 
 const AppNavbar = (props) => {
   const [isOpen, setIsOpen] = useState(false);

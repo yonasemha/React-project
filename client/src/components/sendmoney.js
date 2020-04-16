@@ -1,12 +1,12 @@
-import React from 'react';
+import React, {PureComponent}from 'react';
 import { Form, Input, Col, FormGroup, Button, Row, Label } from 'reactstrap';
 import { connect } from 'react-redux'
-import { withRouter } from 'react-router-dom'
+import { withRouter ,Link} from 'react-router-dom'
 import styles from './sendmoney.module.css'
 import {orderUserAsync} from '../store/action/authAction'
 
 
-class Sendmoneyform extends React.Component {
+class Sendmoneyform extends PureComponent{
 
     state = {
         loading: false,

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-// import { withRouter } from 'react-router-dom';
-import { Form, Input, Col, Button } from 'reactstrap';
+import { withRouter } from 'react-router-dom';
+import { Form, Input, Col, FormGroup, Button, La, Inputbel } from 'reactstrap';
 
 import PropTypes from "prop-types";
 import { signupUserAsync } from "../store/action/authAction";
@@ -38,7 +38,7 @@ class Signup extends Component {
   };
 
   componentDidUpdate(prevProps) {
-    const { error } = this.props;   // isAuthenticated
+    const { error, isAuthenticated } = this.props;
     if (error !== prevProps.error) {
       if (error.id === "SIGNUP_FAIL") {
         this.setState({ msg: error.msg.msg })
